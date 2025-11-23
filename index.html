@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Itinerary & Local Experience Content Maker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="light">
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <button id="mobile-menu-btn" class="icon-button mobile-only" aria-label="Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="logo-area">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h1>Travel Itinerary & Content Maker</h1>
+                </div>
+            </div>
+
+            <div class="header-controls">
+                <button class="icon-button nav-btn active" data-view="home" title="Home" aria-label="Home">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </button>
+                <button class="icon-button nav-btn" data-view="saved-trips" title="Saved Trips"
+                    aria-label="Saved Trips">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </button>
+                <button class="icon-button nav-btn" data-view="presets" title="Presets" aria-label="Presets">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </button>
+                <button class="icon-button nav-btn" data-view="bookmarks" title="Bookmarks" aria-label="Bookmarks">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </button>
+                <button class="icon-button nav-btn" data-view="settings" title="Settings" aria-label="Settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                        </path>
+                    </svg>
+                </button>
+                <div class="divider desktop-only"></div>
+                <button id="theme-toggle" class="icon-button" aria-label="Toggle Theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                        </path>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" style="display:none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- View Container -->
+        <div class="view-container">
+
+            <!-- VIEW: HOME (Itinerary Builder) -->
+            <div id="view-home" class="view-section active">
+                <main class="main-grid">
+                    <!-- Left Column: Inputs -->
+                    <aside class="input-panel" id="sidebar">
+                        <div class="panel-header">
+                            <h2>Trip Details</h2>
+                            <div class="presets-dropdown">
+                                <select id="preset-selector">
+                                    <option value="">Load a Preset...</option>
+                                    <option value="city-break">Weekend City Break</option>
+                                    <option value="digital-nomad">7-Day Digital Nomad</option>
+                                    <option value="family-beach">Family Beach Week</option>
+                                    <option value="romantic">Romantic Anniversary</option>
+                                    <option value="backpacker">Backpacking Loop</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <form id="itinerary-form">
+                            <!-- Core Details -->
+                            <div class="form-section card">
+                                <div class="form-group">
+                                    <label for="destination">Destination</label>
+                                    <input type="text" id="destination" placeholder="e.g. Paris, Tokyo, Bali" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="start-date">Start Date (Optional)</label>
+                                        <input type="date" id="start-date">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="duration">Duration (Days)</label>
+                                        <input type="number" id="duration" min="1" max="21" value="5" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Preferences -->
+                            <div class="form-section card">
+                                <div class="form-group">
+                                    <label>Budget Level</label>
+                                    <div class="segment-control">
+                                        <input type="radio" name="budget" value="shoestring" id="b-shoestring">
+                                        <label for="b-shoestring">$</label>
+
+                                        <input type="radio" name="budget" value="standard" id="b-standard" checked>
+                                        <label for="b-standard">$$</label>
+
+                                        <input type="radio" name="budget" value="premium" id="b-premium">
+                                        <label for="b-premium">$$$</label>
+
+                                        <input type="radio" name="budget" value="luxury" id="b-luxury">
+                                        <label for="b-luxury">$$$$</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Pacing</label>
+                                    <div class="segment-control">
+                                        <input type="radio" name="pacing" value="relaxed" id="p-relaxed">
+                                        <label for="p-relaxed">Relaxed</label>
+
+                                        <input type="radio" name="pacing" value="balanced" id="p-balanced" checked>
+                                        <label for="p-balanced">Balanced</label>
+
+                                        <input type="radio" name="pacing" value="intense" id="p-intense">
+                                        <label for="p-intense">Intense</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Travel Style</label>
+                                    <div class="chip-grid">
+                                        <label class="chip">
+                                            <input type="checkbox" name="style" value="foodie"> Foodie
+                                        </label>
+                                        <label class="chip">
+                                            <input type="checkbox" name="style" value="culture"> Culture
+                                        </label>
+                                        <label class="chip">
+                                            <input type="checkbox" name="style" value="nightlife"> Nightlife
+                                        </label>
+                                        <label class="chip">
+                                            <input type="checkbox" name="style" value="adventure"> Adventure
+                                        </label>
+                                        <label class="chip">
+                                            <input type="checkbox" name="style" value="slow_travel"> Slow Travel
+                                        </label>
+                                        <label class="chip">
+                                            <input type="checkbox" name="style" value="digital_nomad"> Nomad
+                                        </label>
+                                        <label class="chip">
+                                            <input type="checkbox" name="style" value="family"> Family
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Monetization -->
+                            <div class="form-section card">
+                                <div class="form-group">
+                                    <label>Monetization Mode</label>
+                                    <div class="checkbox-list">
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="monetization" value="destination_pack">
+                                            Destination Pack Outline
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="monetization" value="affiliate_booking">
+                                            Affiliate Placeholders
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="monetization" value="subscription_content">
+                                            Subscription Content
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Advanced / Optional -->
+                            <div class="form-section card">
+                                <details class="advanced-options">
+                                    <summary>Advanced Options</summary>
+                                    <div class="advanced-content">
+                                        <div class="form-group">
+                                            <label for="must-see">Must-See Items</label>
+                                            <textarea id="must-see" rows="2"
+                                                placeholder="e.g. Eiffel Tower, Street Food Market"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="constraints">Constraints</label>
+                                            <textarea id="constraints" rows="2"
+                                                placeholder="e.g. No hiking, Vegan food only"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="creator-profile">Creator Profile</label>
+                                            <textarea id="creator-profile" rows="2"
+                                                placeholder="e.g. Solo female travel blogger, budget focus"></textarea>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <div class="sticky-footer">
+                                <button type="submit" class="btn-primary" id="generate-btn">
+                                    <span class="btn-text">Generate Plan</span>
+                                    <span class="btn-loader" style="display:none;"></span>
+                                </button>
+                            </div>
+                        </form>
+                    </aside>
+
+                    <!-- Right Column: Output -->
+                    <section class="output-panel">
+                        <div class="output-header">
+                            <div class="tabs">
+                                <button class="tab-btn active" data-tab="preview">Preview</button>
+                                <button class="tab-btn" data-tab="markdown">Markdown Source</button>
+                            </div>
+                            <div class="output-actions">
+                                <button id="copy-btn" class="action-btn" title="Copy to Clipboard">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                                <button id="download-btn" class="action-btn" title="Download Text File">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="output-content" class="output-content">
+                            <div class="empty-state">
+                                <div class="empty-icon">✈️</div>
+                                <h3>Ready to plan your next adventure?</h3>
+                                <p>Fill in the details on the left to generate a custom itinerary and content pack.</p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+
+            <!-- VIEW: SAVED TRIPS -->
+            <div id="view-saved-trips" class="view-section">
+                <div class="page-container">
+                    <div class="page-header">
+                        <h2>Saved Trips</h2>
+                        <p>Access your previously generated itineraries.</p>
+                    </div>
+                    <div class="empty-state-card">
+                        <div class="empty-icon">📂</div>
+                        <h3>No saved trips yet</h3>
+                        <p>Generate a plan and save it to see it here.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: PRESETS -->
+            <div id="view-presets" class="view-section">
+                <div class="page-container">
+                    <div class="page-header">
+                        <h2>Quick Start Presets</h2>
+                        <p>Choose a template to jumpstart your planning.</p>
+                    </div>
+                    <div class="presets-grid">
+                        <!-- Presets will be injected here or hardcoded -->
+                        <div class="preset-card card">
+                            <div class="preset-icon">🏙️</div>
+                            <h3>Weekend City Break</h3>
+                            <p>Perfect for a 3-day exploration of a new city.</p>
+                            <button class="btn-secondary load-preset-btn" data-preset="city-break">Load Preset</button>
+                        </div>
+                        <div class="preset-card card">
+                            <div class="preset-icon">💻</div>
+                            <h3>Digital Nomad Setup</h3>
+                            <p>7-day plan with coworking spots and cafes.</p>
+                            <button class="btn-secondary load-preset-btn" data-preset="digital-nomad">Load
+                                Preset</button>
+                        </div>
+                        <div class="preset-card card">
+                            <div class="preset-icon">🏖️</div>
+                            <h3>Family Beach Week</h3>
+                            <p>Relaxed 5-day itinerary for families.</p>
+                            <button class="btn-secondary load-preset-btn" data-preset="family-beach">Load
+                                Preset</button>
+                        </div>
+                        <div class="preset-card card">
+                            <div class="preset-icon">❤️</div>
+                            <h3>Romantic Anniversary</h3>
+                            <p>Luxury, slow-paced 10-day getaway.</p>
+                            <button class="btn-secondary load-preset-btn" data-preset="romantic">Load Preset</button>
+                        </div>
+                        <div class="preset-card card">
+                            <div class="preset-icon">🎒</div>
+                            <h3>Backpacker Loop</h3>
+                            <p>Budget-friendly 14-day adventure.</p>
+                            <button class="btn-secondary load-preset-btn" data-preset="backpacker">Load Preset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: BOOKMARKS -->
+            <div id="view-bookmarks" class="view-section">
+                <div class="page-container">
+                    <div class="page-header">
+                        <h2>Bookmarks</h2>
+                        <p>Your pinned destinations and ideas.</p>
+                    </div>
+                    <div class="empty-state-card">
+                        <div class="empty-icon">🔖</div>
+                        <h3>No bookmarks yet</h3>
+                        <p>Use this space later to pin your best itineraries and destinations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: SETTINGS -->
+            <div id="view-settings" class="view-section">
+                <div class="page-container narrow">
+                    <div class="page-header">
+                        <h2>Settings</h2>
+                        <p>Customize your experience.</p>
+                    </div>
+                    <div class="settings-list card">
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>Appearance</h3>
+                                <p>Switch between light and dark themes.</p>
+                            </div>
+                            <div class="setting-control">
+                                <!-- Reusing the global toggle logic visually here if needed, or just text -->
+                                <span class="badge">Use Header Toggle</span>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>Text Size</h3>
+                                <p>Adjust the font size of the preview.</p>
+                            </div>
+                            <div class="setting-control">
+                                <div class="segment-control">
+                                    <input type="radio" name="text-size" value="small" id="ts-small">
+                                    <label for="ts-small">S</label>
+                                    <input type="radio" name="text-size" value="medium" id="ts-medium" checked>
+                                    <label for="ts-medium">M</label>
+                                    <input type="radio" name="text-size" value="large" id="ts-large">
+                                    <label for="ts-large">L</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>Language</h3>
+                                <p>Select your preferred language.</p>
+                            </div>
+                            <div class="setting-control">
+                                <select class="styled-select">
+                                    <option value="en">English</option>
+                                    <option value="es">Spanish (Coming Soon)</option>
+                                    <option value="fr">French (Coming Soon)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast">Copied to clipboard!</div>
+
+        <!-- Mobile Overlay -->
+        <div id="mobile-overlay" class="mobile-overlay"></div>
+
+        <!-- Hidden Metadata Tokens -->
+        <input type="hidden" id="gemini_model_core" value="gemini-2.5-pro">
+        <input type="hidden" id="nano_banana_integration_placeholder">
+        <input type="hidden" id="veo3_travel_ad_storyboard_placeholder">
+        <input type="hidden" id="firecrawl_destination_research_placeholder">
+        <input type="hidden" id="no_subtitles">
+        <input type="hidden" id="no_watermark">
+        <input type="hidden" id="structured_ui_logic">
+        <input type="hidden" id="responsive_nav_ready">
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Add Copy/Download Logic inline for simplicity or append to script.js
+        const copyBtn = document.getElementById('copy-btn');
+        const downloadBtn = document.getElementById('download-btn');
+        const toast = document.getElementById('toast');
+
+        function showToast(msg) {
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        if (copyBtn) {
+            copyBtn.addEventListener('click', () => {
+                const content = document.querySelector('.markdown-preview') ? document.querySelector('.markdown-preview').innerText : document.querySelector('pre').innerText;
+                if (!content) return;
+                navigator.clipboard.writeText(content).then(() => showToast('Copied to clipboard!'));
+            });
+        }
+
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', () => {
+                const content = document.querySelector('.markdown-preview') ? document.querySelector('.markdown-preview').innerText : document.querySelector('pre').innerText;
+                if (!content) return;
+                const blob = new Blob([content], { type: 'text/markdown' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'itinerary-pack.md';
+                a.click();
+                URL.revokeObjectURL(url);
+                showToast('Download started!');
+            });
+        }
+    </script>
+</body>
+
+</html>
